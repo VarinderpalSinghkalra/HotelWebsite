@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Admin Dashboard</h2>
+<h3>Reservations</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Room Name</th>
+            <th>Guest Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for reservation in reservations %}
+        <tr>
+            <td>{{ reservation.room.name }}</td>
+            <td>{{ reservation.guest_name }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
