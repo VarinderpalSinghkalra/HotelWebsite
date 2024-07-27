@@ -1,0 +1,15 @@
+Running the Application
+
+Install Flask: Make sure Flask is installed. You can install it using pip: pip install Flask
+Run the App: Navigate to your project directory and run: python app.py
+Access the Site: Open a web browser and go to http://127.0.0.1:5000/ to view the front-end and http://127.0.0.1:5000/admin for the admin interface.
+
+
+
+
+
+Enhancements
+Database Integration: For a real application, integrate a database (e.g., SQLite, PostgreSQL) to store rooms and reservations.
+Authentication: Add user authentication for the admin interface to restrict access.
+Form Validation: Implement more robust form validation and error handling.
+Styling: Enhance the styling with more advanced CSS or front-end frameworks like Bootstrap.
