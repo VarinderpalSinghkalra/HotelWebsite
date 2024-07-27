@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>{{ room.name }}</h2>
+<p>{{ room.description }}</p>
+<p><strong>Price: ${{ room.price }}</strong></p>
+
+<form action="{{ url_for('reserve') }}" method="post">
+    <input type="hidden" name="room_id" value="{{ room.id }}">
+    <label for="guest_name">Your Name:</label>
+    <input type="text" id="guest_name" name="guest_name" required>
+    <button type="submit">Reserve Now</button>
+</form>
+{% endblock %}
