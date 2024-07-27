@@ -1,0 +1,38 @@
+from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(__name__)
+
+# Sample data
+rooms = [
+    {'id': 1, 'name': 'Deluxe Room', 'description': 'Spacious and luxurious.', 'price': 200},
+    {'id': 2, 'name': 'Suite', 'description': 'Elegant and expansive.', 'price': 350},
+    {'id': 3, 'name': 'Standard Room', 'description': 'Comfortable and affordable.', 'price': 150},
+]
+
+reservations = []
+
+@app.route('/')
+def home():
+    return render_template('home.html', rooms=rooms)
+
+@app.route('/room/<int:room_id>')
+def room_details(room_id):
+    room = next((room for room in rooms if room['id'] == room_id), None)
+    return render_template('room_details.html', room=room)
+
+@app.route('/reserve', methods=['POST'])
+def reserve():
+    room_id = int(request.form.get('room_id'))
+    guest_name = request.form.get('guest_name')
+    room = next((room for room in rooms if room['id'] == room_id), None)
+    if room:
+        reservations.append({'room': room, 'guest_name': guest_name})
+        return redirect(url_for('home'))
+    return 'Room not found', 404
+
+@app.route('/admin')
+def admin():
+    return render_template('admin.html', reservations=reservations)
+
+if __name__ == '__main__':
+    app.run(debug=True)
