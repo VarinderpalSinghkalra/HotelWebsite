@@ -1,0 +1,19 @@
+To build a two-tier hotel website with Python, you'll typically use a web framework like Flask or Django. Flask is lightweight and straightforward for simpler projects, while Django is more feature-rich and suitable for larger projects.
+
+Here’s a basic example of how you can set up a two-tier hotel website using Flask. The two tiers will include:
+
+Front-end: The user interface where visitors can view hotel details and make reservations.
+Back-end: The admin interface where the hotel staff can manage room availability and reservations.
+1. Setting Up the Project Structure
+
+Create a project directory with the following structure:
+hotel_website/
+├── app.py
+├── templates/
+│   ├── home.html
+│   ├── admin.html
+│   ├── room_details.html
+│   └── layout.html
+└── static/
+    ├── style.css
+    └── images/
